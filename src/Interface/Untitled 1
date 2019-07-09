@@ -1,0 +1,266 @@
+
+Basic of Java
+
+OOP: 
+Encapsulation
+Inheritance
+Abstraction
+Polymorphism
+=========================
+
+Websites for basic programming practices:
+   
+   -- codinbat.com
+   -- hackerrank.com
+   -- leetcode.com
+====================================
+
+What is Abstraction?
+
+-- Showing only functionality but hiding implementation
+-- focusing on essential parts instead of implementation
+-- Creating a general base class to serve as a templete and no implementation from which other
+
+
+How do you achieve abstraction in Java?
+2 ways to achieve abstraction:
+   --> Abstraction classes
+   --> Interfaces
+   
+Abstract class example:
+
+  public abstract class Language{
+         public abstract void use();
+         
+  }   
+  
+Analyze line 32:
+   1) add keyword abstract it is making our class an abstract class
+   
+   2)Able to include abstract methods in language class: 
+   
+               public abstract void MyAbsMethod();
+   
+   3) Cannot instantiate / create object of this class: new Language();  
+  
+  How do you prevent a class from Instantiation(create objects)?
+    1)Make your class abstract
+    2) create private constructor
+==========================================
+
+Is multiple inheritance allowed in Java using classes or abstract classes?   NO
+
+
+To address this issue i our slide, we can use INTERFACE in Java.
+
+Multiple inheritance is allowed in  Java using only interfaces.
+=============================================================
+
+CONTRACT?
+
+Interface Contract between a class and outside world.
+
+Any class that implements / inherits from an interface is responsible to provide implementation for any abstract methods.
+==============================================================
+
+Interface is a special type in Java that is used to achieve abstraction.
+Before Java 8, Interfaces were pure abstraction, after java 8, we can also include some non-abstract methods.
+
+how to create:
+
+    public interface ScriptingLanguage{
+            
+    }
+
+Before Java 8, we could only add abstract methods into Interfaces.
+it was pure abstraction
+
+public interface ScriptingLanguage{
+         
+         public abstract void code();
+         public abstract void compile();
+         public abstract void execute();
+    }
+    
+    Start java 8, we can also add static and default methods so that no more pure abstraction.
+    
+    public interface ScriptingLanguage{
+         
+         public abstract void code();
+         public abstract void compile();
+         public abstract void execute();
+         
+         public static void help(){
+            //print some document
+         }
+         
+         public default void interpret(){
+                //come code
+         }
+    }
+    
+ ====================================================
+ 
+ 
+ A class can implement an interface using implements keyword.
+ 
+ public class Ruby implements ScriptingLanguage, OOPLanguage{
+ 
+ }   
+ 
+Java allows multiple implementation of interfaces  but does not allow multiple inheritance of classes.
+
+We just separate interfaces by using comma.
+===================================================
+
+Interface can also store constants.
+
+Interface can only contain public static final variables.
+Even if you do not mention those modifiers(keywords), all variables are automatically 
+   < public static final >
+
+public interface ScriptingLanguage{
+    
+       public static final boolean FLEXIBLE = true.
+   
+         public abstract void code();
+         public abstract void compile();
+         public abstract void execute();
+     
+}
+====================================================
+
+public interface Teachable{
+     
+     public static final boolean STUDY_HARD = true;  //only constant field
+     
+     public abstract void canLearn(); //abstract methods
+     public abstract void doHomework(); 
+     
+     public default void readTopics(){  //default methods
+           //code here
+     }
+     
+     public static int doResearch(){  // Static methods
+           //code here
+     }
+}
+
+Different between default and static methods.
+
+Static can be accessed using interface name:
+Teachable.deResearch();
+boolean b = Teachable.STUDY_HARD;
+
+
+public class Student implements
+
+Teachable t = new Teachable();
+t.readTopics();
+=================================================
+
+public class Students implements Teachable{
+       //code
+}
+
+Student.deResearch();
+=============================
+
+We can define following in an Interface:
+
+  1) Variables: public static final
+  2) methods: abstract
+              default
+              static 
+  3) Constructors: Not allowed
+====================================            
+
+If an Interface has a static method that method Can ONLY be accessed or used/called
+  from Interface and not from IMPLEMENTING CONCRETE class.
+Interface has a static method only accessible from that interface. 
+If it has variable yes it can be access in the classes implementing interfaces.
+=========================================
+All interface members are optional.
+
+public Interface Teachable{
+
+}
+
+
+An interface is abstract by default and May not be marked as final.
+
+public final interface Teachable{//does not compile
+}
+=======================================
+An Interface EXTENDS one or more other Interfaces
+Can an Interface EXTEND a cLass?   NO, Interface can only extends another interface.
+
+Can we use IMPLEMENTS keyword with INTERFACES?  NO, Implements can only be used by another class or abstract class.
+=========================================
+
+        i DRIVABLE    Abstract driveit()   public interface Drivable{
+                      Static pass(){}         abstract void driveit();
+                                                public static void pss(){
+                                                  code;
+                                                }
+                                             }     
+                      
+
+         extends                
+         
+         
+         i AUTONOMOUS    Abstract selfDrive()   public interface Autonomous extends Drivable{
+                                                    void seldDrive();
+                                                }
+
+
+          implements                public class implements Autonomous{
+         c TESLA (concrete class)         public voin driveit(){} 
+                                           public void selfDrive(){}
+                                   }
+ =================================================         
+                       ABSTRACT class                                   INTERFACE
+         
+  COMMON         Both used for achieving abstraction.            Both cannot be instantiated.
+                 Both can abstract methods.
+                 Both cannot be final.         
+
+ 
+ VARIABLES       Any static or non static variables               Only public static final variables.
+                   with any access modifier.
+                  
+
+ METHODS        Abstraction or non-abstract static                 Abstract, Default, Static and all public.
+                      or non static.
+                    
+
+ 
+ 1. SUB Classes    A class can only extends a                       A class can implement multiple interfaces.
+                     abstract class.                                  
+                    
+
+
+CONSTRUCTOR         Abstract class can have any                     Interface cannot have constructors.
+                           constructors.
+
+
+
+INHERITANCE         Abstract classes can extend                    Interfaces can extends one or more interfaces.
+                  other classes and implement interfaces.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
